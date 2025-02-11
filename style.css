@@ -9,10 +9,14 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 80px;
+  gap: 20px;
+}
+
+header {
+    padding: 40px;
 }
 
 h1 {
@@ -36,20 +40,24 @@ main {
   height: 150px;
   width: 150px;
   box-shadow: 0 0 0 10px black;
-}
-
-.panel {
-  height: 150px;
-  width: 150px;
+  cursor: pointer;
 }
 
 .center__panel {
   background-color: black;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.simon__logo {
+    width: 100px;
+}
+
 #red {
   background-color: red;
   border-radius: 0 100% 0 0;
