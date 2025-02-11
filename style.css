@@ -40,7 +40,12 @@ main {
   height: 150px;
   width: 150px;
   box-shadow: 0 0 0 10px black;
+}
+
+.panel:hover {
   cursor: pointer;
+  border: 1px solid rgb(0, 0, 0);
+  filter: brightness(60%);
 }
 
 .center__panel {
@@ -52,6 +57,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .simon__logo {
