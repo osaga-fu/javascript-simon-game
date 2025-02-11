@@ -52,20 +52,20 @@ main {
 }
 #red {
   background-color: red;
-  border-radius: 0 50% 0 0;
+  border-radius: 0 100% 0 0;
 }
 
 #blue {
   background-color: blue;
-  border-radius: 0 0 50% 0;
+  border-radius: 0 0 100% 0;
 }
 
 #green {
   background-color: green;
-  border-radius: 50% 0 0 0;
+  border-radius: 100% 0 0 0;
 }
 
 #yellow {
   background-color: yellow;
-  border-radius: 0 0 0 50%;
+  border-radius: 0 0 0 100%;
 }
