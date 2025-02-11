@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    padding: 40px;
+  padding: 40px;
 }
 
 h1 {
@@ -55,7 +55,8 @@ main {
 }
 
 .simon__logo {
-    width: 100px;
+  width: 100px;
+  filter: contrast(150%);
 }
 
 #red {
