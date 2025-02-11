@@ -1,2 +1,3 @@
 # javascript-simon-game
-A simple javascript Simon game 
+
+A simple Simon game using JavaScript, HTML, and CSS.
