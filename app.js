@@ -1,24 +1,42 @@
-const redButton = document.querySelector('.red')
-const blueButton = document.querySelector('.blue');
-const greenButton = document.querySelector('.green');
-const yellowButton = document.querySelector('.yellow');
+const redButton = document.querySelector(".red");
+const blueButton = document.querySelector(".blue");
+const greenButton = document.querySelector(".green");
+const yellowButton = document.querySelector(".yellow");
 
-const sequence = [redButton, blueButton, greenButton, yellowButton];
+const panels = [redButton, blueButton, greenButton, yellowButton];
+
+const getRandomPanel = () => {
+  const randomIndex = Math.floor(Math.random() * 4);
+  return panels[randomIndex];
+};
 
 const flash = (panel) => {
   return new Promise((resolve, reject) => {
     panel.className += " active";
     setTimeout(() => {
       panel.className = panel.className.replace("active", "");
-      resolve();
+      setTimeout(() => {
+        resolve();
+      }, 250);
     }, 1000);
   });
 };
 
+const sequence = [getRandomPanel(), getRandomPanel(), getRandomPanel()];
+
+
+
+const panelClicked = (panel) => {
+  console.log(panel);
+};
+
 const main = async () => {
+  let canClick = false;
+  
   for (let panel of sequence) {
     await flash(panel);
   }
+  canClick = true;
 };
 
 main();
