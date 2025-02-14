@@ -23,16 +23,14 @@ const flash = (panel) => {
 };
 
 const sequence = [getRandomPanel(), getRandomPanel(), getRandomPanel()];
-
-
+let canClick = false;
 
 const panelClicked = (panel) => {
+  if (!canClick) return;
   console.log(panel);
 };
 
 const main = async () => {
-  let canClick = false;
-  
   for (let panel of sequence) {
     await flash(panel);
   }
