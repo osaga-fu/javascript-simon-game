@@ -16,17 +16,21 @@ const getRandomPanel = () => {
   return panels[randomIndex];
 };
 
+const playSound = (panel) =>{
+  if (panel.classList.contains('red')) {
+    sounds.red.play();
+  } else if (panel.classList.contains('blue')) {
+    sounds.blue.play();
+  } else if (panel.classList.contains('green')) {
+    sounds.green.play();
+  } else if (panel.classList.contains('yellow')) {
+    sounds.yellow.play();
+  }
+}
+
 const flash = (panel) => {
   return new Promise((resolve, reject) => {
-    if (panel.classList.contains('red')) {
-      sounds.red.play();
-    } else if (panel.classList.contains('blue')) {
-      sounds.blue.play();
-    } else if (panel.classList.contains('green')) {
-      sounds.green.play();
-    } else if (panel.classList.contains('yellow')) {
-      sounds.yellow.play();
-    }
+    playSound(panel);
 
     panel.className += " active";
     setTimeout(() => {
@@ -46,13 +50,17 @@ const panelClicked = (panelClicked) => {
   if (!canClick) return;
   console.log(panelClicked);
 
+  playSound(panelClicked);
+
   const expectedPanel = sequenceToGuess.shift();
   if (expectedPanel === panelClicked) {
     if (sequenceToGuess.length === 0) {
       //start new round
-      sequence.push(getRandomPanel());
-      sequenceToGuess = [...sequence];
-      startFlashing();
+      setTimeout(() => {
+        sequence.push(getRandomPanel());
+        sequenceToGuess = [...sequence];
+        startFlashing();
+      }, 1300);
     }
   } else {
     //end game
