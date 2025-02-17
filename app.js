@@ -9,6 +9,7 @@ const sounds = {
   blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
   green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
   yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+  gameOver: new Audio("./sounds/gameover.mp3"),
 };
 
 const getRandomPanel = () => {
@@ -38,7 +39,7 @@ const flash = (panel) => {
       setTimeout(() => {
         resolve();
       }, 250);
-    }, 1000);
+    }, 800);
   });
 };
 
@@ -64,7 +65,9 @@ const panelClicked = (panelClicked) => {
     }
   } else {
     //end game
+    sounds.gameOver.play();
     alert("Game over!");
+    window.location.reload();
   }
 };
 
