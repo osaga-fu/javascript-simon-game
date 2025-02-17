@@ -8,25 +8,25 @@ const sounds = {
   red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
   blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
   green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
-  yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
-}
+  yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+};
 
 const getRandomPanel = () => {
   const randomIndex = Math.floor(Math.random() * 4);
   return panels[randomIndex];
 };
 
-const playSound = (panel) =>{
-  if (panel.classList.contains('red')) {
+const playSound = (panel) => {
+  if (panel.classList.contains("red")) {
     sounds.red.play();
-  } else if (panel.classList.contains('blue')) {
+  } else if (panel.classList.contains("blue")) {
     sounds.blue.play();
-  } else if (panel.classList.contains('green')) {
+  } else if (panel.classList.contains("green")) {
     sounds.green.play();
-  } else if (panel.classList.contains('yellow')) {
+  } else if (panel.classList.contains("yellow")) {
     sounds.yellow.play();
   }
-}
+};
 
 const flash = (panel) => {
   return new Promise((resolve, reject) => {
@@ -80,4 +80,6 @@ const main = () => {
   startFlashing();
 };
 
-main();
+const startClicked = () => {
+  main();
+};
