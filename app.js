@@ -22,19 +22,38 @@ const flash = (panel) => {
   });
 };
 
-const sequence = [getRandomPanel(), getRandomPanel(), getRandomPanel()];
+const sequence = [getRandomPanel()];
+let sequenceToGuess = [...sequence];
 let canClick = false;
 
-const panelClicked = (panel) => {
+const panelClicked = (panelClicked) => {
   if (!canClick) return;
-  console.log(panel);
+  console.log(panelClicked);
+
+  const expectedPanel = sequenceToGuess.shift();
+  if (expectedPanel === panelClicked) {
+    if (sequenceToGuess.length === 0) {
+      //start new round
+      sequence.push(getRandomPanel());
+      sequenceToGuess = [...sequence];
+      startFlashing();
+    }
+  } else {
+    //end game
+    alert("Game over!");
+  }
 };
 
-const main = async () => {
+const startFlashing = async () => {
+  canClick = false;
   for (let panel of sequence) {
     await flash(panel);
   }
   canClick = true;
+};
+
+const main = () => {
+  startFlashing();
 };
 
 main();
